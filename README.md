@@ -74,3 +74,4 @@ The third argument is the cardinality:
 > rel Buy(Buyer,Product,m-n,amount,invoice_id)
 > ```
 
+![Snapshot](https://raw.githubusercontent.com/dalhaqq/discord-py-erd-bot/main/snapshot.PNG)
