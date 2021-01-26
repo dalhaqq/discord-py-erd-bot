@@ -9,11 +9,11 @@ class MyClient(discord.Client):
         print(message.content)
         if(message.content[:4] == "~erd"):
             lines = message.content.split("\n")
-            formatter = "graph LR;"
+            formatter = "graph TD;"
             for line in lines:
                 try:
                     if(re.match("def ", line)):
-                        pattern = 'def[\s]+([\w]+)[\s]*\(([\w\d,]*)\)'
+                        pattern = 'def[\s]+([\w_]+)[\s]*\(([\w\d,_-]*)\)'
                         name = re.match(pattern, line)[1]
                         print(name)
                         formatter += "\n"
@@ -26,7 +26,7 @@ class MyClient(discord.Client):
                                 formatter += "\n"
                                 formatter += '{0}{1}([{1}])---{0};'.format(name,attr)
                     elif(re.match("rel ", line)):
-                        pattern = 'rel[\s]+([\w]+)[\s]*\(([\w\d,-]*)\)'
+                        pattern = 'rel[\s]+([\w_]+)[\s]*\(([\w\d,_-]*)\)'
                         name = re.match(pattern, line)[1]
                         print(name)
                         formatter += "\n"
@@ -45,6 +45,7 @@ class MyClient(discord.Client):
                                 formatter += '{0}{1}([{1}])---{0};'.format(name,attr)
                 except:
                     return await message.channel.send('Sintaks tidak sesuai')
+            print(formatter)
             graphbytes = formatter.encode("ascii")
             base64_bytes = base64.b64encode(graphbytes)
             base64_string = base64_bytes.decode("ascii")
