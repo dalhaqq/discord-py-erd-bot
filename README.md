@@ -1,5 +1,7 @@
 # discord-py-erd-bot
 Python-based Discord bot that generates Entity Relationship Diagram
+Uses [discord.py](https://github.com/Rapptz/discord.py) and [Mermaid](https://github.com/mermaid-js/mermaid)
+
 ## Installation
 
  - Clone this repository
