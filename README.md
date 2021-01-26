@@ -66,4 +66,11 @@ The third argument is the cardinality:
  - m-n means many-to-many relationship
  
  You can add forth, fifth, and so on to the relationship so it will have attributes
+ Ex:
+> ~erd
+> ```
+> def Buyer(id,name)
+> def Product(id,name,price)
+> rel Buy(Buyer,Product,m-n,amount,invoice_id)
+> ```
 
